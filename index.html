@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>restaurant ratings app</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body ng-app="RestaurantRating">
+    <div class="container" ng-controller="RestaurantRatingController as restaurant">
+        <h1>Restaurant Ratings App</h1>
+        <div ng-repeat="item in restaurant.items track by $index">
+            <img ng-src="{{item.imageURL}}" alt="{{item.name}}">
+            <div class="box" ng-class="{backgroud1:item.rating > 4, backgroud2:item.rating < 2}">
+                <h3 ng-bind="item.name"></h3>
+                <span>description: {{item.description}}</span>
+                <p> 
+                    Rating:{{item.rating}}
+                    <span ng-if="item.rating > 4" >--<b>The retaurant is super tasty!</b>           <i class="glyphicon glyphicon-thumbs-up" style="font-size:36px;color:rgb(40, 87, 216);"></i></span>
+                    <span ng-if="item.rating < 2">--<b>The retaurant is not very good!</b>
+                        <i class="glyphicon glyphicon-thumbs-down" style="font-size:36px;color:rgb(43, 63, 247);"></i></span>
+                    <button ng-click="restaurant.increment(item)">+</button>
+                    <button ng-click="restaurant.decrement(item)">-</button>
+
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/controllers/restaurantRatingController.js"></script>
+    <script src="./js/service/restaurantRatingService.js"></script>
+</body>
+
+</html>

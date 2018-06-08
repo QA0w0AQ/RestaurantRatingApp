@@ -1,0 +1,19 @@
+body {
+    background-image:url("https://st2.depositphotos.com/3585621/11178/i/950/depositphotos_111786336-stock-photo-wood-table-and-white-bokeh.jpg")
+}
+
+.backgroud1 {
+    background: rgb(52, 243, 5);
+}
+.backgroud2 {
+    background: rgb(255, 0, 0);
+}
+
+img {
+    width: 20%;
+    border-radius: 10px
+}
+
+h1 {
+    text-align: center;
+}
